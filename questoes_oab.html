@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Questões OAB 1ª fase</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&display=swap">
+<style>
+:root{--bg:#f4f5f8;--card:#fff;--ink:#1b2233;--mut:#5b6478;--line:#d9dce5;--pri:#1f3a6b;--ok:#1e7a4f;--okbg:#e3f3ea;--bad:#a3202f;--badbg:#fbe6e8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#12151d;--card:#1b2030;--ink:#e8ebf3;--mut:#9aa3b8;--line:#2d3448;--pri:#8fb0ee;--ok:#5fd09a;--okbg:#17352a;--bad:#ff8c97;--badbg:#3a1b21}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#12151d;--card:#1b2030;--ink:#e8ebf3;--mut:#9aa3b8;--line:#2d3448;--pri:#8fb0ee;--ok:#5fd09a;--okbg:#17352a;--bad:#ff8c97;--badbg:#3a1b21}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:680px;margin:0 auto;padding:20px 16px 48px}
+h1,.q{font-family:"Source Serif 4",Georgia,serif}
+h1{font-size:28px;line-height:1.2;margin:8px 0 6px}
+.sub{color:var(--mut);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 20px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:7px 13px;font:inherit;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--pri);border-color:var(--pri);color:var(--bg);font-weight:600}
+button:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+.btn{background:var(--pri);color:var(--bg);border:0;border-radius:8px;padding:12px 20px;font:inherit;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--pri);border:1px solid var(--pri)}
+.top{display:flex;justify-content:space-between;color:var(--mut);font-size:14px;margin-bottom:10px}
+.bar{height:4px;background:var(--line);border-radius:2px;margin-bottom:16px}.bar i{display:block;height:100%;background:var(--pri);border-radius:2px}
+.tag{display:inline-block;font-size:13px;border:1px solid var(--bad);color:var(--bad);border-radius:4px;padding:1px 7px;margin-left:8px}
+.q{font-size:20px;line-height:1.45;margin:6px 0 16px}
+.opt{display:flex;gap:10px;width:100%;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:8px;font:inherit;cursor:pointer}
+.opt b{min-width:20px;color:var(--mut)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--okbg);border-color:var(--ok)}
+.opt.wrong{background:var(--badbg);border-color:var(--bad)}
+.fb{border-left:4px solid var(--ok);background:var(--okbg);padding:12px 14px;border-radius:0 8px 8px 0;margin:14px 0}
+.fb.no{border-color:var(--bad);background:var(--badbg)}
+.fb p{margin:4px 0 0}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}td,th{padding:6px 4px;border-bottom:1px solid var(--line);text-align:left}
+.big{font-size:40px;font-weight:700;margin:0}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const Q=[
+["Ética Profissional",0,"Conforme o Estatuto da Advocacia, a pretensão à punibilidade das infrações disciplinares prescreve em:",["2 anos","3 anos","5 anos","10 anos"],2,"Art. 43 da Lei 8.906/94: prescreve em 5 anos, contados da data da constatação oficial do fato."],
+["Ética Profissional",0,"A pretensão de cobrança de honorários advocatícios prescreve em:",["1 ano","3 anos","5 anos","10 anos"],2,"Art. 25 da Lei 8.906/94: prescreve em 5 anos, com o termo inicial definido nos incisos do artigo."],
+["Direito Constitucional",0,"Para ser aprovada, uma proposta de emenda à Constituição precisa do voto de:",["maioria simples, em turno único","maioria absoluta, em dois turnos","três quintos dos membros de cada Casa, em dois turnos","dois terços dos membros de cada Casa, em turno único"],2,"Art. 60, §2º, da CF: discussão e votação em cada Casa, em dois turnos, com três quintos dos votos dos respectivos membros."],
+["Direito Constitucional",0,"O habeas data é cabível para:",["proteger a liberdade de locomoção","assegurar o conhecimento de informações do impetrante constantes de registros públicos","proteger direito líquido e certo não amparado por habeas corpus","anular ato lesivo ao patrimônio público"],1,"Art. 5º, LXXII, da CF: conhecimento e retificação de informações relativas à pessoa do impetrante, constantes de registros ou bancos de dados de entidades governamentais ou de caráter público."],
+["Direito Civil",0,"O prazo prescricional da pretensão de reparação civil extracontratual é de:",["1 ano","3 anos","5 anos","10 anos"],1,"Art. 206, §3º, V, do Código Civil: 3 anos."],
+["Direito Civil",0,"Segundo o Código Civil, são absolutamente incapazes de exercer pessoalmente os atos da vida civil:",["os menores de 16 anos","os menores de 18 anos","os ébrios habituais","os pródigos"],0,"Art. 3º do CC: apenas os menores de 16 anos. Ébrios habituais, pródigos e maiores de 16 e menores de 18 são relativamente incapazes (art. 4º)."],
+["Processo Civil",0,"No procedimento comum, o prazo para o réu apresentar contestação é de:",["5 dias úteis","10 dias úteis","15 dias úteis","30 dias corridos"],2,"Art. 335 do CPC: 15 dias, contados conforme as hipóteses do artigo. Os prazos processuais contam-se em dias úteis (art. 219)."],
+["Processo Civil",0,"O prazo para opor embargos de declaração é de:",["5 dias","10 dias","15 dias","30 dias"],0,"Art. 1.023 do CPC: 5 dias. Os demais recursos, em regra, têm 15 dias (art. 1.003, §5º)."],
+["Direito Penal",0,"Considera-se praticado o crime no momento:",["do resultado","da ação ou omissão, ainda que outro seja o momento do resultado","da consumação, em qualquer caso","em que a vítima toma conhecimento do fato"],1,"Art. 4º do CP: adota-se a teoria da atividade."],
+["Direito Penal",1,"Assinale a alternativa que NÃO apresenta requisito da legítima defesa:",["agressão injusta","agressão atual ou iminente","uso moderado dos meios necessários","agressão obrigatoriamente tipificada como crime"],3,"Art. 25 do CP: basta agressão injusta, atual ou iminente, a direito próprio ou alheio. Ela não precisa ser crime."],
+["Processo Penal",0,"No procedimento comum, o prazo para a resposta à acusação é de:",["5 dias","10 dias","15 dias","20 dias"],1,"Art. 396 do CPP: 10 dias, contados da citação."],
+["Processo Penal",1,"Segundo o art. 312 do CPP, NÃO é fundamento da prisão preventiva:",["garantia da ordem pública","garantia da ordem econômica","satisfação do clamor popular","conveniência da instrução criminal"],2,"O art. 312 prevê ordem pública, ordem econômica, conveniência da instrução criminal e aplicação da lei penal. O clamor popular, por si só, não fundamenta a preventiva."],
+["Direito do Trabalho",0,"Após 12 meses de contrato, o empregado tem direito a 30 dias de férias se não tiver faltado ao serviço mais de:",["3 vezes","5 vezes","6 vezes","10 vezes"],1,"Art. 130, I, da CLT: até 5 faltas, 30 dias corridos de férias."],
+["Direito do Trabalho",0,"O contrato de trabalho por prazo determinado não pode ser estipulado por mais de:",["90 dias","1 ano","2 anos","5 anos"],2,"Art. 445 da CLT: 2 anos. O contrato de experiência tem limite de 90 dias (art. 445, parágrafo único)."],
+["Processo do Trabalho",0,"O prazo para interpor recurso ordinário na Justiça do Trabalho é de:",["5 dias","8 dias","15 dias","30 dias"],1,"Art. 895 da CLT e art. 6º da Lei 5.584/70: 8 dias, contados em dias úteis (art. 775 da CLT)."],
+["Processo do Trabalho",0,"O procedimento sumaríssimo é cabível nos dissídios individuais cujo valor não exceda:",["10 salários mínimos","20 salários mínimos","40 salários mínimos","60 salários mínimos"],2,"Art. 852-A da CLT: até 40 salários mínimos na data do ajuizamento da reclamação."],
+["Direito Administrativo",1,"NÃO é modalidade de licitação prevista na Lei 14.133/2021:",["pregão","concorrência","tomada de preços","diálogo competitivo"],2,"Art. 28: pregão, concorrência, concurso, leilão e diálogo competitivo. Tomada de preços e convite deixaram de existir."],
+["Direito Administrativo",1,"Sobre a responsabilidade civil do Estado (art. 37, §6º, da CF), NÃO é correto afirmar:",["é objetiva para as pessoas jurídicas de direito público","alcança as prestadoras de serviços públicos","assegura direito de regresso contra o agente em caso de dolo ou culpa","a vítima deve provar dolo ou culpa do agente para ser indenizada"],3,"A responsabilidade é objetiva: a vítima prova o dano e o nexo causal. Dolo ou culpa só importam na ação regressiva."],
+["Direito Tributário",1,"De acordo com o art. 3º do CTN, o tributo NÃO pode ser:",["prestação pecuniária compulsória","sanção de ato ilícito","instituído em lei","cobrado mediante atividade administrativa plenamente vinculada"],1,"Art. 3º do CTN: tributo é prestação pecuniária compulsória, em moeda, que não constitui sanção de ato ilícito, instituída em lei e cobrada por atividade plenamente vinculada."],
+["Direito Tributário",0,"Em regra, o prazo decadencial para o Fisco constituir o crédito tributário é de:",["2 anos","3 anos","5 anos","10 anos"],2,"Arts. 150, §4º, e 173 do CTN: 5 anos, com termos iniciais distintos conforme o caso."],
+["Direito Empresarial",0,"Deferido o processamento da recuperação judicial, o devedor deve apresentar o plano no prazo improrrogável de:",["30 dias","60 dias","90 dias","180 dias"],1,"Art. 53 da Lei 11.101/2005: 60 dias contados da publicação da decisão. O descumprimento leva à convolação em falência."],
+["Direito Empresarial",0,"O cheque emitido em praça diversa daquela em que deve ser pago deve ser apresentado em:",["15 dias","30 dias","60 dias","90 dias"],2,"Art. 33 da Lei 7.357/85: 30 dias (mesma praça) ou 60 dias (praças diferentes), contados da emissão."]
+];
+const MAT=[...new Set(Q.map(q=>q[0]))],L="ABCD",app=document.getElementById("app");
+let sel=new Set(MAT),run=null;
+const $=s=>document.querySelector(s);
+function home(){
+ app.innerHTML=`<h1>Questões OAB, 1ª fase</h1><p class="sub">${Q.length} questões das 11 matérias principais, com a lei de cada resposta. Ao errar, o gabarito e a explicação aparecem na hora.</p>
+ <div class="card"><b>Escolha as matérias</b><div class="chips" id="chips"></div>
+ <div class="row"><button class="btn" id="go">Começar</button><button class="btn ghost" id="all">Marcar todas</button></div></div>`;
+ const ch=$("#chips");
+ MAT.forEach(m=>{const b=document.createElement("button");b.className="chip";b.textContent=m;b.setAttribute("aria-pressed",sel.has(m));
+  b.onclick=()=>{sel.has(m)?sel.delete(m):sel.add(m);b.setAttribute("aria-pressed",sel.has(m))};ch.append(b)});
+ $("#all").onclick=()=>{sel=new Set(MAT);home()};
+ $("#go").onclick=()=>{const l=Q.filter(q=>sel.has(q[0]));if(!l.length){alert("Marque ao menos uma matéria.");return}start(l)};
+}
+function start(l){run={l,i:0,ok:0,wrong:[],by:{}};show()}
+function show(){
+ const q=run.l[run.i];
+ app.innerHTML=`<div class="top"><span>${q[0]}</span><span>${run.i+1} de ${run.l.length}</span></div>
+ <div class="bar"><i style="width:${run.i/run.l.length*100}%"></i></div>
+ <div class="card"><p class="q">${q[2]}${q[1]?'<span class="tag">negativa</span>':''}</p><div id="opts"></div><div id="fb"></div></div>`;
+ q[3].forEach((t,k)=>{const b=document.createElement("button");b.className="opt";b.innerHTML=`<b>${L[k]}</b><span>${t}</span>`;b.onclick=()=>answer(k);$("#opts").append(b)});
+}
+function answer(k){
+ const q=run.l[run.i],hit=k===q[4],bs=[...document.querySelectorAll(".opt")];
+ bs.forEach(b=>b.disabled=true);
+ bs[q[4]].classList.add("right");if(!hit)bs[k].classList.add("wrong");
+ const s=run.by[q[0]]=run.by[q[0]]||[0,0];s[1]++;
+ if(hit){run.ok++;s[0]++}else run.wrong.push(q);
+ const last=run.i===run.l.length-1;
+ $("#fb").innerHTML=`<div class="fb ${hit?'':'no'}"><b>${hit?'Correto.':'Errado. Gabarito: alternativa '+L[q[4]]+'.'}</b><p>${q[5]}</p></div><button class="btn" id="nx">${last?'Ver resultado':'Próxima questão'}</button>`;
+ $("#nx").focus();$("#nx").onclick=()=>{last?end():(run.i++,show())};
+}
+function end(){
+ const n=run.l.length,p=Math.round(run.ok/n*100);
+ app.innerHTML=`<h1>Resultado</h1><div class="card"><p class="big">${run.ok} de ${n}</p><p class="sub">${p}% de acertos. A meta da 1ª fase é 50%.</p>
+ <table><tr><th>Matéria</th><th>Acertos</th></tr>${Object.entries(run.by).map(([m,v])=>`<tr><td>${m}</td><td>${v[0]} de ${v[1]}</td></tr>`).join("")}</table>
+ <div class="row">${run.wrong.length?'<button class="btn" id="rw">Refazer as erradas</button>':''}<button class="btn ghost" id="hm">Voltar ao início</button></div></div>`;
+ if(run.wrong.length)$("#rw").onclick=()=>start(run.wrong);
+ $("#hm").onclick=home;
+}
+home();
+</script>
+</body>
+</html>
